@@ -1,0 +1,9 @@
+{
+    "appIsRunning":     "- [date] [time] - Application started",
+    "appIsDisabled":    "- [date] [time] - Application stopped",
+    "useCommand":       "- [date] [time] - @[user] (id: [id]) sent a command/message: [text]",
+    "useStart":         "- [date] [time] - @[user] (id: [id]) used /start",
+    "setNewLanguage":   "- [date] [time] - New application language set: [lang]",
+    "botStart":         "- [date] [time] - Bot started",
+    "botStop":          "- [date] [time] - Bot stopped"
+}

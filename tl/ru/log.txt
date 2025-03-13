@@ -1,0 +1,9 @@
+{
+    "appIsRunning":     "- [date] [time] - Приложение запущено",
+    "appIsDisabled":    "- [date] [time] - Приложение выключено",
+    "useCommand":       "- [date] [time] - @[user] (id: [id]) отправил команду/сообщение: [text]",
+    "useStart":         "- [date] [time] - @[user] (id: [id]) использовал /start",
+    "setNewLanguage":   "- [date] [time] - Установлен новый язык приложения: [lang]",
+    "botStart":         "- [date] [time] - Бот запущен",
+    "botStop":          "- [date] [time] - Бот выключен"
+}

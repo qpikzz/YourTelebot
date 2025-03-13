@@ -1,0 +1,9 @@
+{
+    "appIsRunning":     "- [date] [time] - ",
+    "appIsDisabled":    "- [date] [time] - ",
+    "useCommand":       "- [date] [time] - @[user] (id: [id])  [text]",
+    "useStart":         "- [date] [time] - @[user] (id: [id])  /start",
+    "setNewLanguage":   "- [date] [time] - [lang]",
+    "botStart":         "- [date] [time] - ",
+    "botStop":          "- [date] [time] - "
+}

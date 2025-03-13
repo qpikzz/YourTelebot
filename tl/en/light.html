@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourTelebot</title>
+    <link rel="website icon" href="../../data/images/whitelogo.ico">
+
+
+    <style>
+        @font-face {
+    font-family: cruinn;
+    src: url(../../data/Cruinn\ Medium.ttf);
+}
+@font-face {
+    font-family: cruinnLight;
+    src: url(../../data/Cruinn\ Regular.ttf);
+}
+@font-face {
+    font-family: roboto;
+    src: url(../../data/Roboto-Medium.ttf);
+}
+@font-face {
+    font-family: robotoLight;
+    src: url(../../data/Roboto-Regular.ttf);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #E8E6EA;
+    overflow-x: hidden;
+}
+
+
+header {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: rgba(232, 230, 232,0.5);
+    backdrop-filter: blur(0.5rem);
+    border-radius: 0 0 2rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    color: #02000A;
+}
+
+.logo img {
+    width: 3rem;
+    height: 2.7rem;
+    margin-right: 0.4rem;
+}
+
+header a p, footer .logo p {
+    font-family: cruinn;
+    margin-inline: 0.5rem 1rem;
+    margin-block: 0;
+    font-size: 1.5vw;
+}
+
+header a, footer .logo  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #02000A;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+header a:hover, footer .logo:hover  {
+    cursor: default;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-inline: 1rem;
+    font-family: cruinnLight;
+    color: #02000A;
+    text-decoration: none;
+    margin-block: 0;
+    transition: all 0.4s ease;
+    font-size: 1.5vw;
+}
+
+nav a:hover, header a:hover, nav svg:hover path {
+    transform: translateY(2px);
+    color: #5B467A;
+    stroke: #5B467A;
+}
+
+nav svg {
+    width: 1.5vw;
+}
+
+
+.h { /*hidden*/
+    opacity: 0;
+    transition: opacity 2s ease, transform 1s ease;
+    transform: translateY(1rem);
+    will-change: transform, opacity;
+}
+
+
+.v { /*visible*/
+    opacity: 100;
+    transform: translateY(0);
+}
+
+.hello, .about {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    backdrop-filter: blur(2rem);
+}
+
+.hello img, .about img {
+    width: 30vw;
+    /* height: 13.5rem; */
+}
+
+.hello *:hover, .about *:hover {
+    cursor: default;
+}
+
+#helloTitle {
+    font-size: 4rem;
+    font-family: roboto;
+    text-align: center;
+    margin: 0;
+    color: #02000A;
+}
+
+#helloSubtitle {
+    font-size: 2.5rem;
+    font-family: robotoLight;
+    text-align: center;
+    margin: 0;
+    color: #2E5D42;
+}
+
+.helloButtons {
+    margin: 2rem 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.helloButtons a {
+    margin: 0.4rem 1rem;
+    border: #2E5D42 solid 1px;
+    border-radius: 4rem;
+    padding: 1rem;
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: robotoLight;
+    text-decoration: none;
+    color: #2E5D42;
+    transition: all 0.4s ease;
+}
+
+.helloButtons .main{
+    color: #F5F5F5;
+    background-color: #2E5D42;
+}
+
+.helloButtons .main:hover  {
+    background-color: #5B467A;
+    color: #F5F5F5;
+    border: none;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.helloButtons a:hover {
+    border-color: #5B467A;
+    transform: scale(1.05);
+    color: #5B467A;
+    cursor: pointer;
+}
+
+hr {
+    width: 80%;
+    border: #DADBDF solid 1px;
+    border-radius: 1rem;
+}
+
+
+.about div, .download div  {
+    width: 40%;
+}
+
+.about div * {
+    font-size: 2.5rem;
+    font-family: robotoLight;
+    margin: 0.5rem;
+    color: #02000A;
+}
+
+.about div li, .about div b {
+    margin: 0;
+}
+
+.about a {
+    color: #2E5D42;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.about a:hover {
+    cursor: pointer;
+    color: #5B467A;
+}
+
+.download {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 1rem 0;
+}
+
+h1 {
+    text-align: center;
+    color: #02000A;
+    font-family: roboto;
+    font-size: 4rem;
+    font-weight: 100;
+    margin: 5rem 0 0 0;
+}
+.download .part {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+
+}
+
+.download svg {
+    width: 20rem;
+    /* height: 27rem; */
+    object-fit: contain;
+    object-position: top;
+}
+
+.download h2 {
+    font-family: roboto;
+    font-weight: 100;
+    color: #02000A;
+    font-size: 2rem;
+    margin: 0 0 1rem;
+}
+.part p, .part li {
+    color: #02000A;
+    font-family: robotoLight;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+}
+
+.download a {
+    color: #2E5D42;
+    text-decoration: none;
+}
+
+.part {
+    margin: 5rem 0
+}
+
+.part .circle {
+    margin: 0;
+    color: #2E5D42;
+    font-family: cruinnLight;
+    font-size: 10rem;
+    display: flex;
+}
+
+.commands {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.commands_list {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.commands_list div {
+    border: #5B467A solid 1px;
+    border-radius: 2rem;
+    transition: all 0.4s ease;
+}
+
+.commands_list div:hover {
+    border: #02000A solid 1px;
+    cursor: default;
+}
+
+.commands_list div * {
+    margin: 1rem 1rem;
+    font-weight: 100;
+    font-family: roboto;
+}
+
+.commands_list h2 {
+    color: #02000A;
+    font-size: 4rem;
+}
+
+.commands_list i {
+    font-size: 1rem;
+    margin: 0;
+    font-family: robotoLight;
+    color: #2E5D42;
+}
+
+.commands_list .example {
+    font-size: 1rem;
+    color: #5B467A;
+}
+
+#showButton {
+    width: 1rem;
+    height: auto;
+    margin: 0.5rem 3rem;
+    transition: all 0.4s ease;
+}
+
+#showButton path {
+    transition: all 0.4s ease;
+}
+
+#showButton:hover {
+    cursor: pointer;
+}
+
+#showButton:hover path {
+    stroke: #02000A;
+}
+
+.command {
+    display: block;
+    height: auto;
+    transition: all 0.4s ease-in-out;
+}
+
+.hidden {
+    display: none;
+    pointer-events: none;
+}
+
+.rotated {
+    transform: rotate(-90deg);
+}
+
+.commands p {
+    color: #02000A;
+    font-family: robotoLight;
+    font-size: 1rem;
+}
+
+.faq {
+    padding: 0 10%;
+    color: #02000A;
+}
+
+.question:hover {
+    cursor: pointer;
+}
+
+.question p, .question li, .question a {
+    color: #02000A;
+    font-family: robotoLight;
+    font-size: 1rem;
+    margin: 2rem;
+}
+
+.question a {
+    color: #2E5D42;
+    margin: 0;
+}
+
+.question {
+    border: #5B467A solid 1px;
+    border-radius: 2rem;
+    height: 6rem;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.question div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.question div p {
+    font-size: 2rem;
+    margin-bottom: 0;
+    color: #02000A;
+}
+
+.question_show {
+    height: auto;
+}
+
+.arrow {
+    transition: all 0.4s ease;
+}
+
+.question_show .arrow {
+    transform: rotate(-90deg);
+}
+
+.subtitle2 {
+    text-align: center; 
+    font-family: roboto; 
+    margin: 1rem 0 3rem;
+    font-size: 1rem;
+}
+
+.support {
+    border: 1px solid #DADBDF;
+    border-radius: 3rem 3rem 0 0;
+    margin: 10rem 0 0;
+    color: #02000A;
+}
+
+.supportButtons {
+    display: flex;
+    flex-direction: row;
+    padding: 5rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.supportButtons a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #2E5D42;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    width: 15vw;
+    text-decoration: none;
+    color: #2E5D42;
+    transition: all 0.4s ease;
+}
+
+.supportButtons svg {
+    width: 30%;
+    padding-right: 2rem;
+    border-right: 1px solid #2E5D42;
+    height: auto;
+}
+
+path, svg {
+    transition: all 0.4s ease;
+}
+
+.supportButtons p {
+    margin: 0 0 0 2rem;
+    font-size: 2vw;
+    width: 100%;
+    text-align: center;
+    font-family: robotoLight;
+}
+
+#tgASupport:hover svg path{
+    fill: #5B467A;
+}
+
+#emailASupport:hover svg path{
+    stroke: #5B467A;
+}
+
+.supportButtons a:hover, .supportButtons a:hover svg {
+    color: #5B467A;
+    border-color: #5B467A;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    padding: 3rem 0;
+    border: 1px solid #DADBDF;
+}
+
+
+.column1 {
+    width: 40%;
+}
+
+.column1 p {
+    margin-left: 0.2rem;
+    font-size: 1rem;
+    font-family: robotoLight;
+    color: #02000A;
+}
+
+.column2 {
+    padding: 3.8rem 0 0 0;
+    width: 15%;
+}
+
+.column2 * {
+    font-size: 1rem;
+    font-family: robotoLight;
+    margin: 0 0 1rem;
+    display: block;
+    text-decoration: none;
+    color: #02000A;
+}
+
+.column2 p {
+    font-family: roboto;
+}
+
+.column2 a{
+    color: #2E5D42;
+}
+
+.column2 a:hover {
+    color: #5B467A;
+}
+
+.license {
+    text-align: center;
+    font-size:1rem;
+    font-family: cruinn;
+    color: #02000A;
+}
+
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <a href="#hello" class="logo">
+            <img src="../../data/images/blacklogo.ico" alt="logo">
+            <p>YourTelebot</p>
+        </a>
+        <p>></p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#download">Installation</a>
+            <a href="#commands">Commands</a>
+            <a href="#faq">FAQ</a>
+            <a href="#support">Support</a>
+            <a href="dark.html">
+                <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 15.5486C1 24.6345 8.45957 32 17.6614 32C23.8611 32 29.2699 28.6566 32.1393 23.6962C32.5033 23.0669 31.674 22.4686 31.07 22.8733C28.6716 24.4804 25.7768 25.4194 22.6599 25.4194C14.3782 25.4194 7.66457 18.7904 7.66457 10.6132C7.66457 7.55034 8.60643 4.70472 10.2198 2.34328C10.6309 1.74148 10.0361 0.899507 9.40148 1.2579C4.38237 4.09235 1 9.43045 1 15.5486Z" stroke="black" stroke-width="2"/>
+                </svg>
+                    
+            </a>
+        </nav>
+    </header>
+
+    <div class="hello h" id="hello">
+        <div class="helloText">
+            <p id="helloTitle">Control Your PC</p>
+            <p id="helloSubtitle">using a Telegram bot.</p>
+            <div class="helloButtons">
+                <a href="#download" class="main">Download</a>
+                <a href="#about">Learn more</a>
+            </div>
+        </div>
+        <img src="../../data/images/blacklogo.svg" alt="🦊">
+    </div>
+
+    <hr>
+
+    <div class="about h" id="about">
+        <svg width="454" height="340" viewBox="0 0 454 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M134 335H317" stroke="#2E5D42" stroke-width="10" stroke-linecap="round"/>
+            <rect x="5" y="5" width="444" height="285" rx="96" stroke="#2E5D42" stroke-width="10"/>
+            <path d="M207.386 184.933C198.197 184.024 186.731 180.811 176.219 177.337C164.75 173.485 153.421 169.228 142.253 164.575C130.976 159.895 131.525 144.379 142.253 139.861L296.153 75.0613C298.378 74.123 300.813 73.7984 303.206 74.1213C305.598 74.4443 307.86 75.4029 309.757 76.8974C311.653 78.3919 313.113 80.3675 313.986 82.6184C314.859 84.8693 315.113 87.3131 314.72 89.6953L294.29 213.508C292.328 225.451 279.215 232.291 268.262 226.351C259.1 221.365 245.501 213.706 233.243 205.696C227.123 201.7 221.201 197.533 216.278 193.483C213.056 190.837 209.897 187.939 207.386 184.933ZM207.386 184.933L248 145" stroke="#2E5D42" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+            
+        
+        <div>
+            <p><b>YourTelebot</b> - a free open-source program.</p>
+            <p>It allows you to create a Telegram bot capable of:</p>
+            <ul>
+                <li>Managing files</li>
+                <li>Taking screenshots / webcam photos</li>
+                <li>Synthesizing speech</li>
+            </ul>
+            <a href="#commands">View all commands</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="download h" id="download">
+        <h1>Installation</h1>
+        <div class="part h">
+            <p class="circle">1</p>
+            <div>
+                <h2>Install YourTelebot</h2>
+                <p>Go to the <a href="https://github.com/qpikzz/" target="_blank">GitHub project</a>, select the latest release, and download it (Assets → Source Code).</p>
+                <p>Extract the archive to any convenient location.</p>
+                <p>If you're reading this, then you've already completed point 1! Here you go!</p>
+            </div>
+            <svg width="475" height="384" viewBox="0 0 475 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M245.7 358.094C280.639 327.717 372.432 253.721 445 246.717L355.791 37L293.552 101.505H231.313H169.075L106.836 37L28 246.717C97.3033 254.023 183.831 327.187 217.246 357.723C225.227 365.016 237.541 365.188 245.7 358.094Z" stroke="#2E5D42" stroke-width="10"/>
+                <path d="M307.893 241.693C296.901 245.478 285.627 246.505 274.824 245.143C268.179 244.306 265.548 236.664 270.268 231.913C277.943 224.189 287.46 218.057 298.451 214.273C309.443 210.488 320.716 209.46 331.52 210.822C338.165 211.66 340.796 219.302 336.076 224.053C328.401 231.777 318.884 237.908 307.893 241.693Z" fill="#2E5D42"/>
+                <path d="M166.451 241.693C177.443 245.478 188.717 246.505 199.52 245.143C206.165 244.306 208.796 236.664 204.076 231.913C196.401 224.189 186.884 218.057 175.893 214.273C164.901 210.488 153.628 209.46 142.824 210.822C136.179 211.66 133.548 219.302 138.268 224.053C145.943 231.777 155.46 237.908 166.451 241.693Z" fill="#2E5D42"/>
+                <path d="M242.936 286.888C239.944 290.368 234.556 290.368 231.564 286.888L215.656 268.39C211.474 263.528 214.929 256 221.342 256H253.158C259.571 256 263.026 263.528 258.844 268.39L242.936 286.888Z" fill="#2E5D42"/>
+            </svg>
+                
+        </div>
+        <div class="part h">
+            <p class="circle">2</p>
+            <div>
+                <h2>Download Python</h2>
+                <p>Visit the <a href="https://www.python.org/downloads/" target="_blank">official Python website</a> and install one of the latest versions.</p>
+                <p>Important: During installation, enable "Add Python to PATH." This is necessary for the program to automatically install required libraries.</p>
+                <p>In case of errors:</p>
+                <ul>  
+                    <li>Try downloading an older version of Python.</li>  
+                    <li>If you already had Python installed, remove everything related to it.</li>  
+                    <li>Restart your computer.</li>  
+                    <li>If this doesn't help, search for a solution online or contact support!</li>  
+                </ul>
+            </div>
+            <svg width="360" height="360" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M180 99.7297H99.7297M99.7297 99.7297H72.5805C58.1854 99.7297 43.4514 103.083 34.5859 114.428C25.1319 126.54 15 147.161 15 180C15 212.822 25.1319 233.46 34.5859 245.572C43.4514 256.917 58.1854 260.27 72.5805 260.27H99.7297M99.7297 99.7297V72.5805C99.7297 58.1854 103.083 43.4514 114.428 34.5859C126.54 25.1319 147.161 15 180 15C212.822 15 233.46 25.1319 245.572 34.5859C256.917 43.4514 260.27 58.1854 260.27 72.5805V99.7297M180 260.27H260.27M260.27 260.27H287.402C301.797 260.27 316.549 256.917 325.396 245.572C334.868 233.46 345 212.839 345 180C345 147.178 334.868 126.54 325.414 114.428C316.549 103.083 301.797 99.7297 287.419 99.7297H260.27M260.27 260.27V287.402C260.27 301.797 256.917 316.549 245.572 325.396C233.46 334.868 212.839 345 180 345C147.178 345 126.54 334.868 114.428 325.414C103.083 316.549 99.7297 301.797 99.7297 287.419V260.27M260.27 99.7297V144.324C260.27 153.786 256.512 162.86 249.821 169.551C243.131 176.241 234.056 180 224.595 180H135.405C125.944 180 116.869 183.759 110.179 190.449C103.488 197.14 99.7297 206.214 99.7297 215.676V260.27" stroke="#2E5D42" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M233.513 295.946C233.513 299.494 232.104 302.897 229.595 305.406C227.086 307.915 223.683 309.324 220.135 309.324C216.587 309.324 213.184 307.915 210.675 305.406C208.166 302.897 206.757 299.494 206.757 295.946C206.757 292.398 208.166 288.995 210.675 286.486C213.184 283.977 216.587 282.567 220.135 282.567C223.683 282.567 227.086 283.977 229.595 286.486C232.104 288.995 233.513 292.398 233.513 295.946ZM126.486 64.0539C126.486 60.5057 127.896 57.1029 130.405 54.594C132.914 52.085 136.317 50.6755 139.865 50.6755C143.413 50.6755 146.816 52.085 149.325 54.594C151.834 57.1029 153.243 60.5057 153.243 64.0539C153.243 67.6021 151.834 71.0049 149.325 73.5139C146.816 76.0228 143.413 77.4323 139.865 77.4323C136.317 77.4323 132.914 76.0228 130.405 73.5139C127.896 71.0049 126.486 67.6021 126.486 64.0539Z" fill="#2E5D42"/>
+            </svg>
+                
+        </div>
+        <div class="part h">
+            <p class="circle">3</p>
+            <div>
+                <h2>Fonts</h2>
+                <p>Open the "data" folder and install all fonts (.ttf, .otf files).</p>
+                <p>For Windows: <br>Settings → Personalization → Fonts, then drag and drop the font files into the designated window.</p>
+            </div>
+            <svg width="350" height="210" viewBox="0 0 350 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M293.487 136.796H229.848C212.637 136.796 198.684 150.859 198.684 168.205C198.684 185.552 212.637 199.606 229.848 199.606H246.356C272.333 199.606 293.402 178.385 293.402 152.205M252.008 73.9946H298.522C323.551 73.9946 340 84.9946 340 114.762V199.606H293.487V114.762C293.487 85.0031 277.038 73.9946 252.008 73.9946ZM252.008 73.9946C229.966 73.9946 221.953 74.9931 210.53 86.4331M114.805 136.796H30.8069M10 199.606L72.81 10M72.81 10L135.612 199.606H180.771L117.969 10H72.81ZM236.82 136.796V199.606" stroke="#2E5D42" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+                
+        </div>
+        <div class="part h">
+            <p class="circle">4</p>
+            <div>
+                <h2>Getting a Token</h2>
+                <p>Go to <a href="https://t.me/BotFather" target="_blank">BotFather</a> <i>(The official Telegram bot where the token will be created)</i></p>
+                <p>Use the command /newbot. Enter a name and username of your choice (we recommend using random letter combinations, e.g., neflolcsawbot).</p>
+                <p>You will receive an API token (HTTP API), which must be inserted into the corresponding field in the program.</p>
+                <p>Example token: <br>1234567890:ABCDEFGHIJKLmlrgUQw4fnb1mDEoA0-iZQp</p>
+            </div>
+            <svg width="336" height="165" viewBox="0 0 336 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M78.6596 5H72.3919M66 5H72.3919M93.5883 102.34H72.4428H51.2972M101.383 125.426H43.5398M72.3919 5H78.9681C83.1343 5 86.864 7.58304 88.3292 11.4831L139.007 146.377C141.463 152.915 136.63 159.894 129.646 159.894H120.199C115.909 159.894 112.097 157.157 110.725 153.093L81.8892 67.6919C78.825 58.617 65.9865 58.6264 62.9356 67.7057L34.2474 153.079C32.8792 157.151 29.0637 159.894 24.7683 159.894H15.4114C8.4345 159.894 3.60204 152.929 6.04394 146.394L56.4438 11.5C57.9042 7.59111 61.6384 5 65.8113 5H72.3919ZM189.298 103.404V149.894C189.298 155.416 184.821 159.894 179.298 159.894H170.043C164.52 159.894 160.043 155.416 160.043 149.894V15C160.043 9.47716 164.52 5 170.043 5H219.617C231.674 5 241.957 7.16312 250.468 11.4894C259.05 15.7447 265.574 21.6667 270.043 29.2553C274.582 36.7731 276.851 45.3546 276.851 55C276.851 65 274.582 73.617 270.043 80.8511C265.574 88.0851 259.05 93.6525 250.468 97.5532C241.957 101.454 231.674 103.404 219.617 103.404H189.298ZM189.298 103.404V80.4255M189.298 80.4255V38.0851C189.298 32.5623 193.775 28.0851 199.298 28.0851H219.617C226.142 28.0851 231.426 29.3617 235.468 31.9149C239.582 34.4681 242.596 37.8014 244.511 41.9149C246.426 46.0284 247.383 50.461 247.383 55.2128C247.383 60.1064 246.426 64.4681 244.511 68.2979C242.596 72.0567 239.582 75.0355 235.468 77.234C231.426 79.3617 226.142 80.4255 219.617 80.4255H189.298ZM301.745 15V149.894C301.745 155.416 306.222 159.894 311.745 159.894H321C326.523 159.894 331 155.416 331 149.894V15C331 9.47715 326.523 5 321 5H311.745C306.222 5 301.745 9.47716 301.745 15Z" stroke="#2E5D42" stroke-width="10"/>
+            </svg>
+                
+        </div>
+        <div class="part h">
+            <p class="circle">5</p>
+            <div>
+                <h2>You're Almost There!</h2>
+                <p>Launch the application, insert the token into the appropriate field, and customize everything to your liking.</p>
+                <p>Turn on the bot and use /start – in response, you will receive your Telegram account ID.</p>
+                <p>Turn off the bot and insert your ID into the user field.</p>
+                <p>The bot is ready! You're amazing! ♡</p>
+            </div>  
+            <svg width="341" height="255" viewBox="0 0 341 255" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M295.185 5H46.8159C24.292 5 6.03272 23.2592 6.03272 45.7832V208.916C3.84102 249.584 58.4066 264.849 77.7116 228.988C84.3641 216.63 97.2691 208.916 111.304 208.916H295.185C317.709 208.916 335.969 190.657 335.969 168.133V45.7832C335.969 23.2592 317.709 5 295.185 5Z" stroke="#2E5D42" stroke-width="10"/>
+                <rect x="65" y="51" width="203.916" height="10" rx="5" fill="#2E5D42"/>
+                <rect x="65.1683" y="106.958" width="203.916" height="10" rx="5" fill="#2E5D42"/>
+            </svg>
+                
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="commands h" id="commands">
+        <h1>Commands</h1>
+        <p style="text-align: center;">In templates, parentheses "()" indicate required data, and square brackets "[]" indicate optional data.</p>
+        <div class="commands_list">
+            <div>
+                <h2>about</h2>
+                <p>Display information about your PC.</p>
+                <p class="example">Template: about</p>
+            </div>
+            <div>
+                <h2>apps</h2>
+                <p>List all running applications.</p>
+                <p class="example">Template: apps</p>
+            </div>
+            <div>
+                <h2>clearchat</h2>
+                <p>Clear the entire chat with the bot.</p>
+                <p class="example">Template: clearchat</p>
+            </div>
+            <div>
+                <h2>clear</h2>
+                <p>Clear the console with a smooth animation.</p>
+                <p class="example">Template: clear</p>
+            </div>
+            <div>
+                <h2>click</h2>
+                <p>Perform a single right mouse click.</p>
+                <p class="example">Template: click</p>
+            </div>
+            <div>
+                <h2>colorphoto</h2>
+                <p>Take a photo in darkness.</p>
+                <p class="example">Template: colorphoto [color]</p>
+                <p><i>Example: colorphoto #FF0000</i></p>
+            </div>
+            <div class="command">
+                <h2>convert</h2>
+                <p>Convert a document to the specified format.</p>
+                <p class="example">Template: convert (format)</p>
+                <p><i>Example: convert gif</i></p>
+            </div>
+            <div class="command">
+                <h2>create</h2>
+                <p>Create a file and write text to it.</p>
+                <p class="example">Template: create (file) [text]</p>
+                <p><i>Example: create hello.txt hello world!</i></p>
+            </div>
+            <div class="command">
+                <h2>delete</h2>
+                <p>Delete a folder or file.</p>
+                <p class="example">Template: delete (file/folder)</p>
+                <p><i>Example: delete hello.txt</i></p>
+            </div>
+            <div class="command">
+                <h2>find</h2>
+                <p>Find a file path by name.</p>
+                <p class="example">Template: find (file)</p>
+                <p><i>Example: find something.exe</i></p>
+            </div>
+            <div class="command">
+                <h2>help</h2>
+                <p>Show this list of commands.</p>
+                <p class="example">Template: help</p>
+            </div>
+            <div class="command">
+                <h2>ip</h2>
+                <p>Display your IP address.</p>
+                <p class="example">Template: ip</p>
+            </div>
+            <div class="command">
+                <h2>knock</h2>
+                <p>Check if the bot is working.</p>
+                <p class="example">Template: knock</p>
+            </div>
+            <div class="command">
+                <h2>mkdir</h2>
+                <p>Create an empty folder.</p>
+                <p class="example">Template: mkdir (folder)</p>
+                <p><i>Example: mkdir videos</i></p>
+            </div>
+            <div class="command">
+                <h2>moverel</h2>
+                <p>Move the cursor relative to its current position.</p>
+                <p class="example">Template: moverel (x) (y) [time]</p>
+                <p><i>Example: moverel -10 50</i></p>
+            </div>
+            <div class="command">
+                <h2>moveto</h2>
+                <p>Move the cursor to specified coordinates.</p>
+                <p class="example">Template: moveto (x) (y)</p>
+                <p><i>Example: moveto 100 100</i></p>
+            </div>
+            <div class="command">
+                <h2>off</h2>
+                <p>Turn off the bot.</p>
+                <p class="example">Template: off</p>
+            </div>
+            <div class="command">
+                <h2>open</h2>
+                <p>Open a file by specifying its path.</p>
+                <p class="example">Template: open (path/file)</p>
+                <p><i>Example: open C://Users/User/Desktop/file.xlsx</i></p>
+            </div>
+            <div class="command">
+                <h2>photo</h2>
+                <p>Take a photo using your webcam.</p>
+                <p class="example">Template: photo</p>
+            </div>
+            <div class="command">
+                <h2>pos</h2>
+                <p>Return the current cursor position.</p>
+                <p class="example">Template: pos</p>
+            </div>
+            <div class="command">
+                <h2>press</h2>
+                <p>Press a specified key once.</p>
+                <p class="example">Template: press (key)</p>
+                <p><i>Example: press Enter</i></p>
+            </div>
+            <div class="command">
+                <h2>random</h2>
+                <p>Select a random number from the given range.</p>
+                <p class="example">Template: random [A] [B]</p>
+                <p><i>Example: random 10 100</i></p>
+            </div>
+            <div class="command">
+                <h2>save</h2>
+                <p>Download a media file. Specify in the description.</p>
+                <p class="example">Template: save</p>
+            </div>
+            <div class="command">
+                <h2>say</h2>
+                <p>Synthesize and play speech.</p>
+                <p class="example">Template: say (language) (text)</p>
+                <p><i>Example: say ru Привет!</i></p>
+            </div>
+            <div class="command">
+                <h2>screen</h2>
+                <p>Take a screenshot.</p>
+                <p class="example">Template: screen</p>
+            </div>
+            <div class="command">
+                <h2>scroll</h2>
+                <p>Scroll the page.</p>
+                <p class="example">Template: scroll (y)</p>
+                <p><i>Example: scroll 10</i></p>
+            </div>
+            <div class="command">
+                <h2>showdir</h2>
+                <p>Display the contents of a folder.</p>
+                <p class="example">Template: showdir (path)</p>
+                <p><i>Example: showdir temp</i></p>
+            </div>
+            <div class="command">
+                <h2>slowwrite</h2>
+                <p>Type text with an effect.</p>
+                <p class="example">Template: slowwrite (text)</p>
+                <p><i>Example: slowwrite Hello! How are you?</i></p>
+            </div>
+            <div class="command">
+                <h2>translate</h2>
+                <p>Translate text into the desired language.</p>
+                <p class="example">Template: translate (language) (text)</p>
+                <p><i>Example: translate en как ты?</i></p>
+            </div>
+            <div class="command">
+                <h2>web</h2>
+                <p>Open a link.</p>
+                <p class="example">Template: web (link)</p>
+                <p><i>Example: web https://t.me</i></p>
+            </div>
+            <div class="command">
+                <h2>write</h2>
+                <p>Type text without effects.</p>
+                <p class="example">Template: write (text)</p>
+                <p><i>Example: write Hello World!</i></p>
+            </div>
+        </div>
+        <svg width="339" height="514" viewBox="0 0 339 514" fill="none" xmlns="http://www.w3.org/2000/svg" id="showButton">
+            <path d="M15 15L315 257L15 499" stroke="#5B467A" stroke-width="30" stroke-linecap="round"/>
+        </svg>
+            
+    </div>
+
+    <hr>
+    
+    <div class="faq h" id="faq">
+        <h1>FAQ</h1>
+        <p class="subtitle2">(Most Popular Questions)</p>
+        <div class="question" id="question1">
+            <div class="question-body">
+                <p>Is it safe?</p>
+                <p class="arrow"><</p>
+            </div>
+            <p>Yes, but you can significantly increase your security by following three simple steps:</p>
+            <ol>
+                <li><b>Download the application only from official sources</b> (<a href="#download">Install</a>) <br> This way, you can be sure that no malicious software is embedded in the application.</li>
+                <li><b>Do not grant access to people you do not trust.</b> <br>Keep in mind that account owners whose IDs are added to the program have almost full access to your PC!</li>
+                <li><b>Enable 2FA in Telegram (two-factor authentication)</b><br>This will reduce the risk of your account being hacked, thereby increasing the application's security. <br>To enable 2FA in Telegram: <br>Settings > Privacy > Cloud Password.</li>
+            </ol>
+            <p>If you have sufficient knowledge of Python or cybersecurity, the <a href="https://github.com/qpikzz/YourTelebot">source code</a> is available for you.</p>
+        </div>
+
+        <div class="question" id="question2">
+            <div class="question-body">
+                <p>Can I modify the program?</p>
+                <p class="arrow"><</p>
+            </div>
+            <p>Of course! You can modify any files as needed!</p>
+            <p>Moreover, thanks to the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY</a> license, you can distribute modified materials both for free and for commercial purposes (see the license description for details).</p>
+            <p>The <a href="manual.docx">documentation</a> will help you understand the code and find the attribution.</p>
+        </div>
+
+        <div class="question" id="question3">
+            <div class="question-body">
+                <p>My language is not available in the application. Can I add it?</p>
+                <p class="arrow"><</p>
+            </div>
+            <p>Yes! We do not limit you in personalizing our product!</p>
+            <p>You can read more about adding your language in the <a href="manual.docx">documentation</a>.</p>
+
+        </div>
+
+        <div class="question" id="question4">
+            <div class="question-body">
+                <p>It shows an error. What should I do?</p>
+                <p class="arrow"><</p>
+            </div>
+            <p>Usually, the error message comes with a solution. But since you're here, it seems that didn't help.</p>
+            <p>We offer you several solutions:</p>
+            <ol>
+                <li><b>Reinstall the program.</b> <br> This will help if you have modified it and are unsure what went wrong.</li>
+                <li><b>Run the program through IDLE (Integrated Development Environment)</b> <br>If the application doesn't open at all: <br>In the Start menu, find "IDLE (Python your version)". Launch it and open YourTelebot.pyw. After pressing F5, a console will appear, with the last line displaying the error. <br>First, try to solve it yourself using the internet and AI tools. <br>If you can't, contact support or reinstall the program.</li>
+            </ol>
+
+            <p>Note that YourTelebot may not run in some development environments, such as VS Code. This happens because the compilers in these environments require full paths (C://Users//User...), while the program's code uses relative paths (data/images/image.jpg). <br>Therefore, we recommend running the application using pythonw.exe, python.exe, IDLE, or Sublime Text.</p>
+        </div>
+
+        <div class="question" id="question5">
+            <div class="question-body">
+                <p>Who can control my PC?</p>
+                <p class="arrow"><</p>
+            </div>
+            <p>Anyone who has access to the accounts whose IDs you specified in the "Users" menu.</p>
+            <p>We recommend checking your account for connected devices and not giving access to others.</p>
+            <p>You can see which devices your account is logged into inside Telegram: Settings → Devices. Remove any that you don’t use.</p>
+        </div>
+
+        <div class="question" id="question6">
+            <div class="question-body">
+                <p>How does it work?</p>
+                <p class="arrow"><</p>
+            </div>
+            <ol>
+                <li>You launch the program, insert the token and add users.</li>
+                <li>Using the token, the application turns your computer into a server and activates the bot.</li>
+                <li>When any command is sent, the bot checks whether the account is in the user list. If yes, it responds; if not, it ignores the request.</li>
+            </ol>
+        </div>
+
+        <div class="question" id="question7">
+            <div class="question-body">
+                <p>Is there a paid version?</p>
+                <p class="arrow"><</p>
+            </div>
+            <p>Of course <b>not</b>. The original YourTelebot has always been and will always be completely free.</p>
+            <p>However, you are free to distribute your own modification for a fee.</p>
+            <p>If you would like to support the project: <a href="https://boosty.to/qpikzz">Boosty</a>, <a href="https://www.donationalerts.com/r/qpikzz">DonationAlerts</a></p>
+        </div>
+        
+        <div class="question" id="question8">
+            <div class="question-body">
+                <p>How to add multiple users?</p>
+                <p class="arrow"><</p>
+            </div>
+            <p>Remember, by granting access to accounts that may be used by others, you are giving them full access to your computer.</p>
+            <p>To add a new user:</p>
+            <ol>
+                <li>Find out the account ID. You can do this using the /start command in your bot. This command is available to everyone.</li>
+                <li>Add the obtained ID to the program by entering it in the "Users" section, each on a new line. This works as follows: 1 user = 1 line.</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <div class="support h" id="support">
+        <h1>Support</h1>
+        <p class="subtitle2">Still have questions? Contact us!</p>
+        <div class="supportButtons">
+            <a href="https://t.me/qpikzzbot" id="tgASupport" target="_blank">
+                <svg width="481" height="411" viewBox="0 0 481 411" fill="none" xmlns="http://www.w3.org/2000/svg" id="tgSupport">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M479.573 42.2157C480.615 35.8949 479.943 29.4104 477.626 23.4378C475.31 17.4653 471.434 12.2232 466.403 8.25774C461.372 4.2923 455.369 1.74863 449.021 0.891746C442.672 0.0348588 436.21 0.896108 430.308 3.38577L21.9489 175.326C-6.51676 187.314 -7.97348 228.484 21.9489 240.902C51.5821 253.249 81.6427 264.544 112.074 274.765C139.967 283.983 170.391 292.508 194.773 294.92C201.436 302.896 209.818 310.586 218.367 317.607C231.43 328.353 247.143 339.41 263.382 350.013C295.907 371.267 331.991 391.589 356.301 404.819C385.364 420.58 420.158 402.431 425.364 370.741L479.573 42.2157ZM67.7281 207.876L428.899 55.8037L378.319 362.431C354.463 349.464 320.098 330.049 289.484 310.037C275.374 300.977 261.751 291.18 248.672 280.688C245.176 277.832 241.783 274.853 238.498 271.756L333.09 177.189C337.571 172.711 340.089 166.637 340.091 160.302C340.094 153.967 337.579 147.891 333.101 143.41C328.624 138.929 322.549 136.41 316.214 136.408C309.88 136.406 303.803 138.92 299.322 143.398L195.752 246.968C178.224 244.723 153.818 238.228 127.024 229.392C107.076 222.746 87.3121 215.563 67.752 207.852L67.7281 207.876Z" fill="#2E5D42"/>
+                </svg>
+                    
+                <p>telegram</p>
+            </a>
+            <a href="mailto:qp1kzzzz@gmail.com" id="emailASupport" target="_blank">
+                <svg width="480" height="410" viewBox="0 0 480 410" fill="none" xmlns="http://www.w3.org/2000/svg" id="emailSupport">
+                    <path d="M317.289 165.285L372.99 117.707L432.99 66.4575L451.215 50.8904C456.796 60.2933 460 71.2724 460 83V311C460 354.63 424.63 390 381 390H240H99C55.3695 390 20 354.63 20 311V99C20 82.6606 24.9605 67.4797 33.4576 54.8812L47.0103 66.4575L107.01 117.707L162.711 165.285C207.223 203.306 272.777 203.306 317.289 165.285ZM420.493 24.5261L407.01 36.0425L347.01 87.2925L291.309 134.87C261.759 160.111 218.241 160.111 188.691 134.87L132.99 87.2925L72.9897 36.0425L63.8466 28.2328C74.434 22.9634 86.3709 20 99 20H240H397C405.304 20 413.233 21.6067 420.493 24.5261Z" stroke="#2E5D42" stroke-width="20"/>
+                </svg>
+                    
+                <p>email</p>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="column1">
+            <a href="#hello" class="logo">
+                <img src="../../data/images/blacklogo.ico" alt="logo">
+                <p style="font-size: 2rem; margin: 0;">YourTelebot</p>
+            </a>
+            <p>The program allows you to control your computer using a Telegram bot. You can interact with the mouse and keyboard, manage files, and much more! <br><br> 
+                It is not recommended to add other people to the user list, as this may pose certain risks. <br><br> Stay safe! <3</p>
+        </div>
+        <div class="column2">
+            <p>Creator</p>
+            <a href="https://github.com/qpikzz" target="_blank">GitHub</a>
+            <a href="https://t.me/qpikzzbot" target="_blank">Telegram</a>
+            <a href="https://vk.com/qpikzz" target="_blank">VK</a>
+        </div>
+        <div class="column2">
+            <p>Useful Links</p>
+            <a href="light.html">Light Theme</a>
+            <a href="https://github.com/qpikzz/YourTelebot">Source Code</a>
+            <a href="manual.docx">Documentation</a>
+            <a href="user agreement.docx">User Agreement</a>
+        </div>
+    </footer>
+    <p class="license">YourTelebot © 2024 by qpikzz is licensed under CC BY 4.0</p>
+    
+
+    <script>
+
+        // Для работы faq и списка команд
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const button = document.getElementById('showButton');
+        const items = document.querySelectorAll('.command');
+        
+        const question1 = document.getElementById('question1')
+        const question2 = document.getElementById('question2')
+        const question3 = document.getElementById('question3')
+        const question4 = document.getElementById('question4')
+        const question5 = document.getElementById('question5')
+        const question6 = document.getElementById('question6')
+        const question7 = document.getElementById('question7')
+        const question8 = document.getElementById('question8')
+
+
+        items.forEach(item => item.classList.toggle('hidden'));
+
+        button.addEventListener('click', () => {
+            items.forEach(item => item.classList.toggle('hidden'));
+            button.classList.toggle('rotated');
+        });
+
+        question1.addEventListener('click', () => {
+            question1.classList.toggle("question_show")
+        });
+        question2.addEventListener('click', () => {
+            question2.classList.toggle("question_show")
+        });
+        question3.addEventListener('click', () => {
+            question3.classList.toggle("question_show")
+        });
+        question4.addEventListener('click', () => {
+            question4.classList.toggle("question_show")
+        });
+        question5.addEventListener('click', () => {
+            question5.classList.toggle("question_show")
+        });
+        question6.addEventListener('click', () => {
+            question6.classList.toggle("question_show")
+        });
+        question7.addEventListener('click', () => {
+            question7.classList.toggle("question_show")
+        });
+        question8.addEventListener('click', () => {
+            question8.classList.toggle("question_show")
+        });
+
+        });
+
+
+        // Создание плавного появления объектов при прокрутке
+
+        const boxes = document.querySelectorAll('.h');
+        function checkVisibility() {
+            boxes.forEach(box => {
+                const boxTop = box.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (boxTop < windowHeight-100) {
+                    box.classList.add('v');
+                }
+            });
+        }
+
+        checkVisibility()
+        window.addEventListener('scroll', checkVisibility);
+    </script>
+</body>
+</html>

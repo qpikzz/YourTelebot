@@ -1,0 +1,13 @@
+{
+    "language": "en",
+    "token": "",
+    "users": [],
+    "botWorking": false,
+    "groups": false,
+    "answerWithPic": true,
+    "hide": false,
+    "log": false,
+    "2mesMode": false,
+    "autoSave": false,
+    "tempFolder": "temp"
+}
