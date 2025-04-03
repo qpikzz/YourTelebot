@@ -67,7 +67,6 @@ try:
     import pillow_heif
     import time as t
     import threading
-    import pythoncom
     import platform
     import requests
     import telebot
@@ -444,7 +443,6 @@ except ModuleNotFoundError:
         import pillow_heif
         import time as t
         import threading
-        import pythoncom
         import platform
         import requests
         import telebot
@@ -696,7 +694,7 @@ def botFunc():
             bot.send_message(message.chat.id,setTag(data[lang]["messages"]["groupDisable"],message))
             return None
 
-
+        # Commands_Match
         match text.split()[0].lower():
             case "clear":
                 bot.reply_to(message,data[lang]["messages"]["loading"][0])
@@ -933,13 +931,12 @@ def botFunc():
                 disk = []
                 bot.send_message(message.chat.id,setTag(data[lang]["system"]["loading"], message))
                 
-                pythoncom.CoInitialize()  # Инициализация COM в потоке
                 try:
                     w = wmi.WMI()
                     for gpu in w.Win32_VideoController():
                         gpuName = gpu.Name
-                finally:
-                    pythoncom.CoUninitialize()
+                except:
+                    pass
 
                 for i in [
                     ("[node]", platform.node()),
@@ -1386,7 +1383,7 @@ def botStartStop():
         return None
 
     try:
-        botThread.start()
+        botThread.start() # !!! CGI при установке на 3.13 и более новых
     except RuntimeError:
         pass
 
@@ -1397,7 +1394,11 @@ def botStartStop():
         users.config(state=DISABLED)
         if toggleUsers.cget("fg") != black:
             users.config(fg=grey)
-        writeInConsole(data[lang]["system"]["botWasStarted"].replace("[users]",str(len(data["settings"]["users"]))))
+
+        if data["settings"]["users"]:
+            writeInConsole(data[lang]["system"]["botWasStarted"].replace("[users]",str(len(data["settings"]["users"]))))
+        else:
+            writeInConsole(data[lang]["system"]["botWasStarted"].replace("[users]","0"))
         
     else:
         log(data[lang]["log"]["botStop"], None)
